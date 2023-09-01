@@ -14,12 +14,32 @@ print("Original Author   : HA-MRX @ https://github.com/Ha3MrX")
 print("Remaker           : Fimall @ https://github.com/ItsFimall")
 print("Repo              : https://github.com/ItsFimall/DoS-Attack")
 
-ip = input("IP     : ")
-port = int(input("Port   : "))
+target = input("Target (IP or domain): ")
+port_str = input("Port   : ")
 
-if port < 1 or port > 65535:
-    print("Port range error")
+# Check if either the IP or port is blank
+if not target or not port_str:
+    print("Both IP and port must be provided.")
     sys.exit()
+
+try:
+    port = int(port_str)
+    if port < 1 or port > 65535:
+        print("Port range error")
+        sys.exit()
+except ValueError:
+    print("Invalid port number. Please enter a valid integer port.")
+    sys.exit()
+
+def resolve_target(target):
+    try:
+        ip = socket.gethostbyname(target)
+        return ip
+    except socket.gaierror:
+        print(f"Could not resolve the domain: {target}")
+        sys.exit()
+
+ip = resolve_target(target)
 
 sent = 0
 
