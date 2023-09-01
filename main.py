@@ -14,6 +14,7 @@ print("Original Author   : HA-MRX @ https://github.com/Ha3MrX")
 print("Remaker           : Fimall @ https://github.com/ItsFimall")
 print("Repo              : https://github.com/ItsFimall/DoS-Attack")
 
+
 target = input("Target (IP or domain): ")
 port_str = input("Port   : ")
 
