@@ -1,6 +1,7 @@
 import sys
 import time
 import socket
+import os
 import random
 from datetime import datetime
 
@@ -41,6 +42,8 @@ def resolve_target(target):
         sys.exit()
 
 ip = resolve_target(target)
+
+os.system('cls' if os.name == 'nt' else 'clear')
 
 sent = 0
 
